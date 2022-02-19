@@ -5,20 +5,26 @@
 module.exports = {
   // rootDir: path.join(__dirname),
   moduleFileExtensions: ['js', 'mpx', 'json'],
-  cache: false,
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "src/pages/**",
+    "src/store/**",
+    "src/components/**"
+  ],
+  testEnvironment: 'jsdom',
   moduleNameMapper: {
     // webpack的alias需要在此处理
     '^src(.*)': '<rootDir>/src/$1',
-    '@mpxjs/core': '<rootDir>/node_modules/@mpxjs/core/src/index.js'
+    '@mpxjs/core$': '<rootDir>/node_modules/@mpxjs/core/src/index.js',
+    '@mpxjs/fetch': '<rootDir>/node_modules/@mpxjs/fetch/src/index.js',
   },
   testPathIgnorePatterns: ['dist', 'node_modules'],
   testURL: 'http://test.api.com',
-  setupFiles: ['<rootDir>/test/setup'],
+  setupFiles: ['<rootDir>/test/setup', '<rootDir>/test/mockFetch'],
   transform: {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-    '^.+\\.mpx$': '<rootDir>/node_modules/@mpxjs/mpx-jest'
-    // '^.+\\.mpx\\.js$': '<rootDir>/src/mpx-jest/mpxjs/webpack-plugin/mpx-jest',
+    '^.+\\.mpx$': '<rootDir>/node_modules/@mpxjs/mpx-jest',
+    '^.+\\.ts$': '<rootDir>/node_modules/ts-jest'
   },
-  // 屏蔽掉require真实去 locate 文件位置
   transformIgnorePatterns: ['node_modules/(?!(@mpxjs))']
 }

@@ -10,7 +10,7 @@
     "autoAudits": false
   },
   "appid": "touristappid",
-  "projectname": "mpx-unit-test-demo",
+  "projectname": "mpx-template-unit-test",
   "description": "A mpx project",
   "condition": {}
 }

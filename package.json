@@ -1,25 +1,39 @@
 {
-  "name": "mpx-unit-test-demo",
+  "name": "mpx-template-unit-test",
   "version": "1.0.0",
   "description": "A mpx project",
   "main": "index.js",
   "scripts": {
     "watch": "node ./build/build.js -w",
     "watch:prod": "node ./build/build.js -w -p",
-    "build": "node ./build/build.js -p",
+    "build": "node ./build/build.js",
     "build:dev": "node ./build/build.js",
-    "watch:cross": "npm run watch --modes=wx,ali",
-    "build:cross": "npm run build --modes=wx,ali",
-    "help": "node ./build/build.js --help",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+    "watch:cross": "npm run watch --modes=wx,ali,web",
+    "build:cross": "npm run build --modes=wx,ali,web",
+    "watch:web:serve": "npx npm-run-all --parallel watch:web serve",
+    "watch:web": "npm run watch --mode=web",
+    "serve": "npx http-server dist/web",
+    "test": "jest --runInBand --no-cache",
+    "build:test": "npm run build && jest",
+    "help": "node ./build/build.js --help"
   },
   "author": "xuegan <xuegan@didiglobal.com>",
   "license": "ISC",
   "dependencies": {
     "@mpxjs/api-proxy": "^2.5.10",
+    "@mpxjs/core": "^2.6.31",
+    "@mpxjs/fetch": "^2.7.1",
+    "@mpxjs/test-utils": "^1.0.0",
+    "postcss": "^8.4.5",
+    "postcss-load-config": "^3.1.1",
+    "postcss-modules-extract-imports": "^3.0.0",
+    "postcss-modules-local-by-default": "^4.0.0",
+    "postcss-modules-scope": "^3.0.0",
+    "postcss-modules-values": "^4.0.0",
+    "postcss-selector-parser": "^6.0.8",
+    "postcss-value-parser": "^4.0.2",
     "vue": "^2.6.10",
-    "vue-i18n": "^8.15.3",
-    "@mpxjs/core": "^2.6.31"
+    "vue-i18n": "^8.27.0"
   },
   "browserslist": [
     "ios >= 9",
@@ -28,15 +42,16 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/plugin-transform-typescript": "^7.16.1",
     "@babel/preset-env": "^7.10.4",
     "@babel/runtime-corejs3": "^7.10.4",
-    "@mpxjs/miniprogram-simulate": "^1.4.2",
-    "@mpxjs/mpx-jest": "0.0.2",
+    "@mpxjs/miniprogram-simulate": "^1.4.8",
+    "@mpxjs/mpx-jest": "0.0.9",
     "@mpxjs/webpack-plugin": "^2.6.31",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^25.3.0",
+    "babel-jest": "^27.4.5",
     "babel-loader": "^8.1.0",
     "chalk": "^2.3.2",
     "commander": "^6.0.0",
@@ -58,14 +73,14 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.12.0",
-    "jest": "^24.9.0",
-    "miniprogram-simulate": "^1.1.6",
+    "jest": "^27.4.5",
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "progress-bar-webpack-plugin": "^2.1.0",
     "rimraf": "^2.6.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "ts-jest": "^27.1.2",
     "ts-loader": "^6.0.0",
     "typescript": "^4.1.2",
     "url-loader": "^1.0.1",
@@ -77,5 +92,8 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.12",
     "webpack-merge": "^4.1.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }

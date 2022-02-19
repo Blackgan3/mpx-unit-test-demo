@@ -1,0 +1,46 @@
+<template>
+  <view class="list">
+    <view class="defaultClass">default component content {{compData.status}}</view>
+    <view class="successContent" wx:if="{{successContent}}">{{successContent}}</view>
+    <view class="timeDeferFlagClass" wx:if="{{timeDeferFlag}}">{{timeDeferFlag}}</view>
+
+    <view class="someClassShowOne" wx:if="{{someClassShowOne}}">someClassShowOne</view>
+    <view class="someClassShowTwo" wx:if="{{someClassShowTwo}}">someClassShowTwo content</view>
+    <view class="someClassShowThree" wx:if="{{someClassShowThree}}">someClassShowTwo</view>
+
+    <view class="changeFlagClass" bindtap="changeSomeClassShowTwoFlag(flagValue)">change SomeClassShowTwoFlag</view>
+    <view class="someTimeDeferActionClass" bindtap="someTimeDeferAction">trigger someTimeDeferAction</view>
+
+    <view wx:if="{{compStatus === 1}}" class="status_one"> status one </view>
+    <view wx:elif="{{compStatus === 2}}" class="status_two"> status two </view>
+    <view wx:elif="{{compStatus === 3}}" class="status_three"> status three </view>
+    <view wx:else class="status_default"> status default </view>
+
+    <view wx:if="{{someCompShow}}" class="someCompShow"> someCompShow content</view>
+
+    <view wx:for="{{listData2}}" wx:key="index">{{ item }}</view>
+    <view>
+      <list></list>
+    </view>
+  </view>
+</template>
+
+<script src="./index.ts" lang="ts"></script>
+
+<style lang="stylus">
+.list
+  background-color red
+  width 200px
+  /* @mpx-if (__mpx_mode__ === 'ali') */
+  height 100px
+/* @mpx-endif */
+</style>
+
+<script name="json">
+module.exports = {
+  component: true,
+  usingComponents: {
+    list: './list.mpx'
+  }
+}
+</script>

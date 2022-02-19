@@ -11,12 +11,11 @@ module.exports = {
   srcMode: formatOption('wx'),
   cross: formatOption('true'),
   openChildProcess: formatOption('true'),
-  transWeb: formatOption('false'),
+  transWeb: formatOption('true'),
   cloudFunc: formatOption('false'),
   isPlugin: formatOption('false'),
-  tsSupport: formatOption('false'),
-  babel7Support: formatOption('true'),
+  tsSupport: formatOption('true'),
   needEslint: formatOption('false'),
   needDll: formatOption('false'),
-  needUnitTest: formatOption('false')
+  needUnitTest: formatOption('true')
 }

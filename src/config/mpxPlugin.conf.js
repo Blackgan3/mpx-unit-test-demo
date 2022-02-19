@@ -31,7 +31,7 @@ module.exports = {
   // 是否转换px到rpx
   transRpxRules: [
     {
-      mode: 'only',
+      mode: 'all',
       comment: 'use rpx',
       include: resolve('src')
     },
@@ -40,24 +40,21 @@ module.exports = {
   // 输出web时，vue-loader版本<15时需要将该配置关闭
   forceDisableBuiltInLoader: true,
 
-  // 是否生成用于测试的源文件/dist的映射表
-  generateBuildMap: userConf.needUnitTest
-
   // 多语言i18n能力 以下是简单示例，更多详情请参考文档：https://didi.github.io/mpx/i18n.html
-  // i18n: {
-  //   locale: 'en-US',
-  //   // messages既可以通过对象字面量传入，也可以通过messagesPath指定一个js模块路径，在该模块中定义配置并导出，dateTimeFormats/dateTimeFormatsPath和numberFormats/numberFormatsPath同理
-  //   messages: {
-  //     'en-US': {
-  //       message: {
-  //         hello: '{msg} world'
-  //       }
-  //     },
-  //     'zh-CN': {
-  //       message: {
-  //         hello: '{msg} 世界'
-  //       }
-  //     }
-  //   }
-  // }
+  i18n: {
+    locale: 'en-US',
+    // messages既可以通过对象字面量传入，也可以通过messagesPath指定一个js模块路径，在该模块中定义配置并导出，dateTimeFormats/dateTimeFormatsPath和numberFormats/numberFormatsPath同理
+    messages: {
+      'en-US': {
+        message: {
+          hello: '{msg} world'
+        }
+      },
+      'zh-CN': {
+        message: {
+          hello: '{msg} 世界'
+        }
+      }
+    }
+  }
 }

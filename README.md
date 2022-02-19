@@ -1,4 +1,4 @@
-# mpx-unit-test-demo
+# mpx-template-unit-test
 
 > A mpx project
 

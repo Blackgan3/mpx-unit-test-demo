@@ -5,7 +5,7 @@
 module.exports = {
   // rootDir: path.join(__dirname),
   moduleFileExtensions: ['js', 'mpx', 'json'],
-  collectCoverage: true,
+  collectCoverage: false,
   collectCoverageFrom: [
     "src/pages/**",
     "src/store/**",
@@ -26,5 +26,6 @@ module.exports = {
     '^.+\\.mpx$': '<rootDir>/node_modules/@mpxjs/mpx-jest',
     '^.+\\.ts$': '<rootDir>/node_modules/ts-jest'
   },
-  transformIgnorePatterns: ['node_modules/(?!(@mpxjs))']
+  transformIgnorePatterns: ['node_modules/(?!(@mpxjs))'],
+  resolver: './mpx-custom-resolver.js'
 }

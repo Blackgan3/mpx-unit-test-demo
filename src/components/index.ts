@@ -1,5 +1,9 @@
 import mpx, {createComponent} from '@mpxjs/core'
+// @ts-ignore
 import store from '../store/index'
+import pageIndex from '../pages/index.mpx?resolve'
+console.log('===pageIndex', pageIndex)
+
 createComponent({
   properties: {
     successContent: {
@@ -38,7 +42,7 @@ createComponent({
   },
   methods: {
     ...store.mapActions(['createNumber', 'fetchCompData']),
-    changeSomeClassShowTwoFlag(flag) {
+    changeSomeClassShowTwoFlag(flag: boolean) {
       this.someClassShowTwoFlag = flag
     },
     someTimeDeferAction() {

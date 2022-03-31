@@ -23,6 +23,9 @@ createComponent({
   attached() {
     this.fetchCompData()
   },
+  detached() {
+    console.log('example detached trigger')
+  },
   computed: {
     ...store.mapState(['compData', 'someCompShow']),
     someClassShowTwo() {

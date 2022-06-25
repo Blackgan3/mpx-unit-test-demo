@@ -21,6 +21,7 @@ createComponent({
     timeDeferFlag: false
   },
   attached() {
+    // 触发请求数据逻辑，改变对应的data
     this.fetchCompData()
   },
   detached() {
